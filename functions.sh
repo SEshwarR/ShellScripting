@@ -10,6 +10,8 @@ else
     echo "You are root user"
 fi  
 
+
+#validation function used to find whether the given arguments are correctly installed or not
 VALIDATE(){
     if [ $1 -eq 0 ]
     then 
@@ -26,7 +28,7 @@ if [ $? -ne 0 ]
 then 
     echo "MySQL is not installed .. going to install"
     dnf install mysql -y
-    VALIDATE $? "MySQL"
+    VALIDATE $? "MySQL" # $? and MySQL are arguments for VALIDATE Function and considers as $1 and $2
 else
     echo "  MySQL is already installed"  
 fi
