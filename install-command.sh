@@ -11,8 +11,9 @@ else
 fi
 
 dnf list installed mysql 
-
-if [ $? -ne 0 ]  # $? checks the exit status of the code
+#checks already installed or not. if $? is 0 , then
+# if not installed $? is not 0 , expression is true
+if [ $? -ne 0 ]  # $? checks the exit status of the code "dnf list installed mysql"
 then 
     echo "MYSQL is not installed going to install"
     dnf install mysql -y
