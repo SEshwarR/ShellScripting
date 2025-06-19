@@ -7,7 +7,7 @@ N="\e[0m"
 LOGS_FOLDER="/var/log/shellscript-logs"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log"
-PACKAGES=("python" "nginx" "MySql" "httpd")
+PACKAGES=()
 
 mkdir -p $LOGS_FOLDER
 
@@ -34,8 +34,8 @@ VALIDATE(){
     fi        
 }
 
-#for package in ${PACKAGES[@]}
-for package in $@
+#for package in ${PACKAGES[@]} When packages are hard coded
+for package in $@ # when we have to pass arguments while executing the file, $@ gives all arguments passed
 do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
