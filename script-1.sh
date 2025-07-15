@@ -5,4 +5,3 @@ echo "$GREETINGS"
 echo "$V1"
 echo "PID of script-1 is :$$"
 
-source ./script-2.sh
